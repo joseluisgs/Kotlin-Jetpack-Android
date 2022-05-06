@@ -27,13 +27,15 @@ class DetailFragment : Fragment() {
         }
     }
 
+    // Hacemos el binding del fragment con el layout
     private var _binding: FragmentDetailBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding!! // devuelve el _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // Aplicamos el binding
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -65,9 +67,14 @@ class DetailFragment : Fragment() {
             val resources: Resources = context.resources
             val resourceId: Int = resources.getIdentifier(
                 name, "drawable",
-                context?.packageName
+                context.packageName
             )
             resources.getDrawable(resourceId, null)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

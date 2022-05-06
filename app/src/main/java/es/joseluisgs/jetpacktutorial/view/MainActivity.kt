@@ -3,23 +3,32 @@ package es.joseluisgs.jetpacktutorial.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import es.joseluisgs.jetpacktutorial.R
+import es.joseluisgs.jetpacktutorial.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    // Creamos el binding de la vista
+    private lateinit var binding: ActivityMainBinding
 
     private val newsFragment = NewFilmsFragment()
     private val favsFragment = FavsFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
+        // Cambiamos esto
+        //setContentView(R.layout.activity_main)
+        // Por esto
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Le indicamos el fragment
         setFragment(newsFragment)
-
+        // Le indicamos el listener del BottomNavigationView
         setViewBottomNavigationListener()
     }
 
+    // Programamos cómo y de qué manera se cambian los fragments
     private fun setFragment(fragmentToChange: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.layoutFragmentHolder, fragmentToChange)
@@ -27,7 +36,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setViewBottomNavigationListener() {
-        val viewBottomNav = findViewById<BottomNavigationView>(R.id.viewBottomNavigation)
+        // Donde teníamos esto:
+        // val viewBottomNav = findViewById<BottomNavigationView>(R.id.viewBottomNavigation)
+        // Tenemos ahora todo enlazado con binding sin findViewById
+        val viewBottomNav = binding.viewBottomNavigation
         viewBottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.news -> setFragment(newsFragment)

@@ -31,6 +31,7 @@ class FilmsAdapter(
 
     class FilmsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
+        // Hacemos el Binding de la vista con elelemento
         private val binding = ItemFilmBinding.bind(view)
 
         fun bind(item: Film, onClickFilm: (Film) -> Unit) {

@@ -1,5 +1,8 @@
 package es.joseluisgs.jetpacktutorial.data
 
+/**
+ * Simulamos un repositorio de datos
+ */
 object FilmsProvider {
     fun get() : List<Film> =
         listOf(

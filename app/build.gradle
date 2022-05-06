@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    // Para usar parcealize y pasar datos más facilmente entre objetos
     id 'kotlin-parcelize'
 }
 
@@ -30,6 +31,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    // Para poder aplicar viewBinding
     buildFeatures {
         viewBinding true
     }
