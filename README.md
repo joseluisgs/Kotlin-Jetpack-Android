@@ -11,6 +11,7 @@ Ejemplo de implementar poco a poco Jetpack Android en Kotlin
 
 - [Kotlin Jetpack Android](#kotlin-jetpack-android)
   - [Acerca de](#acerca-de)
+  - [Android Jetpack](#android-jetpack)
   - [Autor](#autor)
     - [Contacto](#contacto)
   - [Licencia](#licencia)
@@ -20,6 +21,11 @@ Ejemplo de implementar poco a poco Jetpack Android en Kotlin
 El siguiente proyecto tiene como objetivo acercar cómo implementar Jetpack Android en Kotlin.
 
 El proyecto consiste en la colección de películas con almacenamiento, favoritos, consultas a api rest e inyección de dependencias.
+
+## Android Jetpack
+Jetpack es un conjunto de bibliotecas que ayuda a los desarrolladores a seguir las prácticas recomendadas, reducir el código estándar y escribir código que funcione de manera coherente en los dispositivos y las versiones de Android para que puedan enfocarse en el código que les interesa.
+
+![imagen](./images/img02.png)
 
 
 ## Autor
