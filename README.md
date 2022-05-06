@@ -12,6 +12,7 @@ Ejemplo de implementar poco a poco Jetpack Android en Kotlin
 - [Kotlin Jetpack Android](#kotlin-jetpack-android)
   - [Acerca de](#acerca-de)
   - [Android Jetpack](#android-jetpack)
+  - [View Binding](#view-binding)
   - [Autor](#autor)
     - [Contacto](#contacto)
   - [Licencia](#licencia)
@@ -27,6 +28,17 @@ Jetpack es un conjunto de bibliotecas que ayuda a los desarrolladores a seguir l
 
 ![imagen](./images/img02.png)
 
+## View Binding
+
+La vinculación de vista es una función que te permite escribir más fácilmente código que interactúa con las vistas. Una vez que la vinculación de vista está habilitada en un módulo, genera una clase de vinculación para cada archivo de diseño XML presente en ese módulo. Una instancia de una clase de vinculación contiene referencias directas a todas las vistas que tienen un ID en el diseño correspondiente. En la mayoría de los casos, la vinculación de vistas reemplaza a ***findViewById***.
+
+La vinculación de vistas tiene ventajas importantes frente al uso de findViewById:
+
+- Seguridad nula: Debido a que la vinculación de vista crea referencias directas a las vistas, no hay riesgo de una excepción de puntero nulo debido a un ID de vista no válido. Además, cuando una vista solo está presente en algunas configuraciones de un diseño, el campo que contiene su referencia en la clase de vinculación se marca con @Nullable.
+- Seguridad de tipos: Los campos de cada clase de vinculación tienen tipos que coinciden con las vistas a las que hacen referencia en el archivo XML. Esto significa que no hay riesgo de una excepción de transmisión de clase.
+Estas diferencias significan que las incompatibilidades entre tu diseño y tu código harán que falle la compilación durante el momento de compilación en lugar de hacerlo en el tiempo de ejecución.
+
+Más información: https://developer.android.com/topic/libraries/view-binding
 
 ## Autor
 
