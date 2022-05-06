@@ -1,4 +1,4 @@
-package es.joseluisgs.jetpacktutorial.view
+package es.joseluisgs.jetpacktutorial.views
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
     // Creamos el binding de la vista
     private lateinit var binding: ActivityMainBinding
 
+    // Los fragments a usar
     private val newsFragment = NewFilmsFragment()
     private val favsFragment = FavsFragment()
 
@@ -22,8 +23,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Le indicamos el fragment
+        // Le indicamos el fragment inicial a mostrar
         setFragment(newsFragment)
+
         // Le indicamos el listener del BottomNavigationView
         setViewBottomNavigationListener()
     }
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         // val viewBottomNav = findViewById<BottomNavigationView>(R.id.viewBottomNavigation)
         // Tenemos ahora todo enlazado con binding sin findViewById
         val viewBottomNav = binding.viewBottomNavigation
+        // Dependiendo de lo que pulsemos en el BottomNavigationView, cambiamos el fragment
         viewBottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.news -> setFragment(newsFragment)

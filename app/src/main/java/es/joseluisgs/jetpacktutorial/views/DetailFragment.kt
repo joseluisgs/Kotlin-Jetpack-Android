@@ -1,4 +1,4 @@
-package es.joseluisgs.jetpacktutorial.view
+package es.joseluisgs.jetpacktutorial.views
 
 import android.content.Context
 import android.content.res.Resources
@@ -9,16 +9,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import es.joseluisgs.jetpacktutorial.data.Film
 import es.joseluisgs.jetpacktutorial.databinding.FragmentDetailBinding
+import es.joseluisgs.jetpacktutorial.models.Film
 
 class DetailFragment : Fragment() {
-
+    // Definimos como le pasamos los datos por el intent
     companion object {
         const val EXTRA = "film"
         fun newInstance(
             film: Film
         ): DetailFragment {
+            // Creamos el fragment y le pasamos los datos con putParceable
             val fragment = DetailFragment()
             val args = Bundle()
             args.putParcelable(EXTRA, film)
@@ -52,11 +53,12 @@ class DetailFragment : Fragment() {
             binding.tvSynopsis.text = it.synopsis
             binding.ivFilm.setImageDrawable(getImageSrc(it.image, context))
             binding.ivFav.setOnClickListener {
-                binding.ivFav.setColorFilter(Color.parseColor("#FFDAA95E"))
+                binding.ivFav.setColorFilter(Color.parseColor("#00618D"))
             }
         }
     }
 
+    // Obtiene la película del argumento Parceable
     private fun getFilmFromArguments(): Film? =
         arguments?.let {
             it.getParcelable(EXTRA) as? Film

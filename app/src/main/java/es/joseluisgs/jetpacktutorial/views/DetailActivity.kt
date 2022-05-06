@@ -1,12 +1,12 @@
-package es.joseluisgs.jetpacktutorial.view
+package es.joseluisgs.jetpacktutorial.views
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import es.joseluisgs.jetpacktutorial.R
-import es.joseluisgs.jetpacktutorial.data.Film
 import es.joseluisgs.jetpacktutorial.databinding.ActivityDetailBinding
-import es.joseluisgs.jetpacktutorial.view.DetailFragment.Companion.EXTRA
+import es.joseluisgs.jetpacktutorial.models.Film
+import es.joseluisgs.jetpacktutorial.views.DetailFragment.Companion.EXTRA
 
 class DetailActivity : AppCompatActivity() {
     // binding
@@ -19,15 +19,16 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Obtenemos el film
+        // Con los datos obtenidos se los pasamos al fragment que tenemos asignados
         getExtras()?.let {
             setFragment(DetailFragment.newInstance(it))
         } ?: finish()
     }
 
-    // Obtenemos los extras es decir la película por un intent
+    // Obtenemos los extras es decir la película por un intent Parceable...
     private fun getExtras(): Film? = intent.extras?.getParcelable(EXTRA)
 
+    // Función para obtener el fragment y añadirlo a la vista
     private fun setFragment(fragmentToChange: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.layoutFragmentHolder, fragmentToChange)

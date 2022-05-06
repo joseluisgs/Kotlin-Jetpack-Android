@@ -1,4 +1,4 @@
-package es.joseluisgs.jetpacktutorial.view
+package es.joseluisgs.jetpacktutorial.views
 
 import android.os.Bundle
 import android.view.LayoutInflater

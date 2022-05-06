@@ -1,4 +1,4 @@
-package es.joseluisgs.jetpacktutorial.view
+package es.joseluisgs.jetpacktutorial.views
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import es.joseluisgs.jetpacktutorial.data.FilmsProvider
 import es.joseluisgs.jetpacktutorial.databinding.FragmentNewFilmsBinding
-import es.joseluisgs.jetpacktutorial.view.DetailFragment.Companion.EXTRA
+import es.joseluisgs.jetpacktutorial.repositories.FilmsRepository
+import es.joseluisgs.jetpacktutorial.views.DetailFragment.Companion.EXTRA
 
 class NewFilmsFragment : Fragment() {
     // View Binding
@@ -27,11 +27,16 @@ class NewFilmsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // de nuestro recyclerView le pasamos una instancia de LinearLayoutManager
         with(binding.recyclerNews) {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            adapter = FilmsAdapter(FilmsProvider.get()) {
+            // le pasamos una instancia de FilmsAdapter con las peliculas recuperadas del repositorio
+            adapter = FilmsAdapter(FilmsRepository.get()) {
+                // cuando se pulsa sobre una pelicula, se lanza una nueva actividad
                 val intentDetail = Intent(context, DetailActivity::class.java)
+                // Le añadimos la pelicula seleccionada como extra
                 intentDetail.putExtra(EXTRA, it)
+                // lanzamos la actividad con el intent creado y el dato que necesita
                 startActivity(intentDetail)
             }
         }

@@ -1,45 +1,45 @@
-package es.joseluisgs.jetpacktutorial.view
+package es.joseluisgs.jetpacktutorial.views
 
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import es.joseluisgs.jetpacktutorial.R
-import es.joseluisgs.jetpacktutorial.data.Film
 import es.joseluisgs.jetpacktutorial.databinding.ItemFilmBinding
+import es.joseluisgs.jetpacktutorial.models.Film
 
 
 class FilmsAdapter(
+    // Lista de películas
     private val films: List<Film>,
+    // Evento al pulsar una película
     private val onClickFilm: (Film) -> Unit
 ) : RecyclerView.Adapter<FilmsAdapter.FilmsViewHolder>() {
 
     override fun onBindViewHolder(holder: FilmsViewHolder, position: Int) {
         val item = films[position]
+        // bindeamos los datos y el evento al view holder
         holder.bind(item, onClickFilm)
     }
 
+    // Lo hacemos así https://stackoverflow.com/questions/60423596/how-to-use-viewbinding-in-a-recyclerview-adapter
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmsViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        return FilmsViewHolder(layoutInflater.inflate(R.layout.item_film, parent, false))
+        // inflamos el layout del item
+        val itemBinding = ItemFilmBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        // devolvemos el view holder con el binding
+        return FilmsViewHolder(itemBinding)
     }
 
     override fun getItemCount() = films.size
 
-    class FilmsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-        // Hacemos el Binding de la vista con elelemento
-        private val binding = ItemFilmBinding.bind(view)
-
+    class FilmsViewHolder(private val itemBinding: ItemFilmBinding) : RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(item: Film, onClickFilm: (Film) -> Unit) {
-            binding.tvTitle.text = item.name
-            binding.tvDirector.text = item.director
-            binding.tvRate.text = item.rate
-            binding.ivCover.setImageDrawable(getImageSrc(item.image, itemView.context))
-            binding.cardFilm.setOnClickListener { onClickFilm(item) }
+            itemBinding.tvTitle.text = item.name
+            itemBinding.tvDirector.text = item.director
+            itemBinding.tvRate.text = item.rate
+            itemBinding.ivCover.setImageDrawable(getImageSrc(item.image, itemView.context))
+            itemBinding.cardFilm.setOnClickListener { onClickFilm(item) }
         }
 
         private fun getImageSrc(name: String, context: Context): Drawable {

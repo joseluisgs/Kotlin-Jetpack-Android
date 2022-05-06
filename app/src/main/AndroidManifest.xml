@@ -3,7 +3,7 @@
           package="es.joseluisgs.jetpacktutorial">
 
     <!-- Permisos de la apliacion -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:name=".FilmApp"
@@ -12,13 +12,13 @@
             android:label="@string/app_name"
             android:supportsRtl="true"
             android:theme="@style/Theme.FilmApp">
-        <activity android:name=".view.MainActivity" android:exported="true">
+        <activity android:name=".views.MainActivity" android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.DetailActivity" />
+        <activity android:name=".views.DetailActivity"/>
     </application>
 
 </manifest>

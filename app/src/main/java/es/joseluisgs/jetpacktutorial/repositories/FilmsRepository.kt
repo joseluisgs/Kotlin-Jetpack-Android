@@ -1,10 +1,12 @@
-package es.joseluisgs.jetpacktutorial.data
+package es.joseluisgs.jetpacktutorial.repositories
+
+import es.joseluisgs.jetpacktutorial.models.Film
 
 /**
  * Simulamos un repositorio de datos
  */
-object FilmsProvider {
-    fun get() : List<Film> =
+object FilmsRepository {
+    fun get(): List<Film> =
         listOf(
             Film(
                 id = 0,

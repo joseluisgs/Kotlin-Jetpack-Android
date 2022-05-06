@@ -10,4 +10,9 @@
 
     <color name="brown">#805E3B</color>
     <color name="yellow">#FFDAA95E</color>
+
+    <color name="primaryColor">#00618D</color>
+    <color name="primaryLightColor">#B3ECFF</color>
+    <color name="primaryDarkColor">#004770</color>
+    <color name="primaryTextColor">#000000</color>
 </resources>
