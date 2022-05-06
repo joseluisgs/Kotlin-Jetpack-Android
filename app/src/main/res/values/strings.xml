@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FilmApp</string>
+    <string name="option_news">Novedades</string>
+    <string name="option_favs">Favoritas</string>
+</resources>
