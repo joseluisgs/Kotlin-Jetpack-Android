@@ -13,10 +13,12 @@ Ejemplo de implementar poco a poco Jetpack Android en Kotlin
   - [Acerca de](#acerca-de)
   - [Android Jetpack](#android-jetpack)
   - [View Binding](#view-binding)
+  - [View Model](#view-model)
+  - [Live Data](#live-data)
   - [Autor](#autor)
     - [Contacto](#contacto)
   - [Licencia](#licencia)
-      - [Agradecimientos](#agradecimientos)
+        - [Agradecimientos](#agradecimientos)
 
 ## Acerca de
 El siguiente proyecto tiene como objetivo acercar cómo implementar Jetpack Android en Kotlin.
@@ -38,7 +40,32 @@ La vinculación de vistas tiene ventajas importantes frente al uso de findViewBy
 - Seguridad de tipos: Los campos de cada clase de vinculación tienen tipos que coinciden con las vistas a las que hacen referencia en el archivo XML. Esto significa que no hay riesgo de una excepción de transmisión de clase.
 Estas diferencias significan que las incompatibilidades entre tu diseño y tu código harán que falle la compilación durante el momento de compilación en lugar de hacerlo en el tiempo de ejecución.
 
+![imagen](./images/viewbinding.webp)
+
 Más información: https://developer.android.com/topic/libraries/view-binding
+
+## View Model
+ViewModel nos permite almacenar y administrar datos relacionados con la IU de manera optimizada para los ciclos de vida y con ello realizar una vinculación entre los datos y su representación en la interfaz y con ellos implementar el patrón MVVM. Es responsable de preparar y manejar estados para la UI. Tiene una relación directa con la vista para
+mostrar los datos. Mediante el uso de ViewModel seremos capaces de desacoplar la lógica de presentación de los componentes de UI.
+
+La vista espera un estado de UI proporcionado por ViewModel y, a su vez, ViewModel podrá actualizar dicho estado de UI si se producen eventos desde la vista. En resumen, la vista podrá recibir actualizaciones del estado de UI desde el ViewModel.
+
+Más información: https://developer.android.com/topic/libraries/architecture/viewmodel?hl=es-419
+
+## Live Data
+LiveData es una clase de contenedor de datos observable. LiveData está optimizado para ciclos de vida, lo que significa que respeta el ciclo de vida de otros componentes de las apps, como actividades, fragmentos o servicios. 
+
+Permite que otros componentes se suscriban a él con el fin de ser notificados si se produce algún cambio. Contiene un estado y su principal responsabilidad es avisar a sus
+suscriptores cuando dicho estado cambie.
+
+Fragments y Activities pueden suscribirse a un componente LiveData para ser notificados siempre que se produzca una actualización. Si se produce un evento y los datos relacionados con el componente LiveData cambian, los Fragments y Activities suscritos a él serán
+notificados al mismo tiempo. LiveData está pendiente del ciclo de vida de Activities y Fragments. Si estos van a un estado onDestroy el componente LiveData cierra y destruye la conexión con ellos automáticamente.
+
+![imagen](./images/livedata.png)
+
+De esta manera combinando LiveData con ViewModel, podremos observar los datos de la vista y el ViewModel en tiempo real y aplicar patrones reactivos.
+
+Más información: https://developer.android.com/topic/libraries/architecture/livedata?hl=es-419
 
 ## Autor
 
@@ -75,5 +102,5 @@ Codificado con :sparkling_heart: por [José Luis González Sánchez](https://twi
 
 Este proyecto está licenciado bajo licencia **MIT**, si desea saber más, visite el fichero [LICENSE](./LICENSE) para su uso docente y educativo.
 
-#### Agradecimientos
+##### Agradecimientos
 Proyecto basado en el curso de Openwebinars: Curso de Android Jetpack Architecture
