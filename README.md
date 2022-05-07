@@ -15,6 +15,7 @@ Ejemplo de implementar poco a poco Jetpack Android en Kotlin
   - [View Binding](#view-binding)
   - [View Model](#view-model)
   - [Live Data](#live-data)
+  - [Coroutines](#coroutines)
   - [Autor](#autor)
     - [Contacto](#contacto)
   - [Licencia](#licencia)
@@ -29,6 +30,10 @@ El proyecto consiste en la colección de películas con almacenamiento, favorito
 Jetpack es un conjunto de bibliotecas que ayuda a los desarrolladores a seguir las prácticas recomendadas, reducir el código estándar y escribir código que funcione de manera coherente en los dispositivos y las versiones de Android para que puedan enfocarse en el código que les interesa.
 
 ![imagen](./images/img02.png)
+
+Más información en: 
+- https://developer.android.com/jetpack
+- https://developer.android.com/topic/libraries/architecture?hl=es-419
 
 ## View Binding
 
@@ -67,6 +72,16 @@ De esta manera combinando LiveData con ViewModel, podremos observar los datos de
 
 Más información: https://developer.android.com/topic/libraries/architecture/livedata?hl=es-419
 
+## Coroutines
+Coroutines es una biblioteca de Kotlin que permite la ejecución de código asíncrono en una manera más eficiente. En Android, las corrutinas ayudan a administrar tareas de larga duración que, de lo contrario, podrían bloquear el subproceso principal y hacer que tu app dejara de responder. Los componentes optimizados para ciclos de vida proporcionan compatibilidad de primer nivel con las corrutinas para alcances lógicos de tu app, junto con una capa de interoperabilidad con LiveData Nos ofrecen:
+- Ligereza: Puedes ejecutar muchas corrutinas en un solo subproceso debido a la compatibilidad con la suspensión, que no bloquea el subproceso en el que se ejecuta la corrutina. La suspensión ahorra más memoria que el bloqueo y admite muchas operaciones simultáneas.
+- Menos fugas de memoria: Usa la simultaneidad estructurada para ejecutar operaciones dentro de un alcance.
+- Compatibilidad con cancelación incorporada: Se propaga automáticamente la cancelación a través de la jerarquía de corrutinas en ejecución.
+- Integración con Jetpack: Muchas bibliotecas de Jetpack incluyen extensiones que proporcionan compatibilidad total con corrutinas. Además, algunas bibliotecas proporcionan su propio alcance de corrutina, que puedes usar para la simultaneidad estructurada.
+
+![imagen](./images/corutines.png)
+
+Más información: https://developer.android.com/kotlin/coroutines?hl=es-419
 ## Autor
 
 Codificado con :sparkling_heart: por [José Luis González Sánchez](https://twitter.com/joseluisgonsan)
