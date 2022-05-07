@@ -1,13 +1,14 @@
 package es.joseluisgs.jetpacktutorial.viewmodels
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import es.joseluisgs.jetpacktutorial.models.Film
 import es.joseluisgs.jetpacktutorial.repositories.NewFilmsRepository
 
 /**
  * View Model para nuevas películas.
  */
-class NewFilmsViewModel {
+class NewFilmsViewModel : ViewModel() {
     // Contenedor de películas observables nuevas para las vistas y reposítorio de datos
     val newsFilmsLiveData = MutableLiveData<List<Film>>()
     private val newFilmsRepository: NewFilmsRepository = NewFilmsRepository()
