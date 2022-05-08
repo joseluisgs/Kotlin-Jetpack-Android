@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,9 +33,10 @@ class NewFilmsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Obtenemos los datos
+        // Obtenemos los datos, ya los obtenemos de manera asincrona
         newFilmsViewModel.getNewFilms()
         // Aplicamos observer sobre el recicler en el ciclo de vida indicado en nuestra vista
+        // Para recuperar las películas
         newFilmsViewModel.newsFilmsLiveData.observe(viewLifecycleOwner) { films ->
             // de nuestro recyclerView le pasamos una instancia de LinearLayoutManager
             with(binding.recyclerNews) {
@@ -49,6 +51,13 @@ class NewFilmsFragment : Fragment() {
                     startActivity(intentDetail)
                 }
             }
+        }
+        // Patrón observer para el estado de la carga de datos
+        newFilmsViewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            // La lista está oculta por defecto, y se muestra una vez hayamos terminado la carga
+            // Mostramos el progressBar si está cargando si no ocultamos
+            binding.recyclerNews.isVisible = !isLoading
+            binding.pbLoading.isVisible = isLoading
         }
     }
 

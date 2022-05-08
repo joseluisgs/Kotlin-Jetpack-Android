@@ -12,7 +12,7 @@ class FilmsService {
     // Lo transformamos en una corrutina, con Dispacher.IO
     suspend fun get(): List<Film> = withContext(Dispatchers.IO) {
         // Vamos a simular un retardo de 3 segundos
-        delay(10000) // Mejor que Thread.sleep(3000)
+        delay(3000) // Mejor que Thread.sleep(3000)
         listOf(
             Film(
                 id = 0,
