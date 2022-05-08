@@ -1,8 +1,9 @@
 package es.joseluisgs.jetpacktutorial.repositories
 
 import es.joseluisgs.jetpacktutorial.models.Film
-import es.joseluisgs.jetpacktutorial.services.FilmsProvider
+import es.joseluisgs.jetpacktutorial.services.FilmsService
 
 class NewFilmsRepository {
-    fun get(): List<Film> = FilmsProvider.get()
+    private val api = FilmsService()
+    suspend fun get(): List<Film> = api.get()
 }

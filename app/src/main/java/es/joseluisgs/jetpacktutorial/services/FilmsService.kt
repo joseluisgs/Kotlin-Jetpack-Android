@@ -1,12 +1,18 @@
 package es.joseluisgs.jetpacktutorial.services
 
 import es.joseluisgs.jetpacktutorial.models.Film
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 
 /**
  * Simulamos un repositorio de datos
  */
-object FilmsProvider {
-    fun get(): List<Film> =
+class FilmsService {
+    // Lo transformamos en una corrutina, con Dispacher.IO
+    suspend fun get(): List<Film> = withContext(Dispatchers.IO) {
+        // Vamos a simular un retardo de 3 segundos
+        delay(10000) // Mejor que Thread.sleep(3000)
         listOf(
             Film(
                 id = 0,
@@ -25,4 +31,5 @@ object FilmsProvider {
                 synopsis = "Gran Bretaña, en un futuro indeterminado. Alex (Malcolm McDowell) es un joven muy agresivo que tiene dos pasiones: la violencia desaforada y Beethoven. Es el jefe de la banda de los drugos, que dan rienda suelta a sus instintos más salvajes apaleando, violando y aterrorizando a la población. Cuando esa escalada de terror llega hasta el asesinato, Alex es detenido y, en prisión, se someterá voluntariamente a una innovadora experiencia de reeducación que pretende anular drásticamente cualquier atisbo de conducta antisocial."
             )
         )
+    }
 }
