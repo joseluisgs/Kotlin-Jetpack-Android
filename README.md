@@ -62,7 +62,7 @@ La vinculación de vistas tiene ventajas importantes frente al uso de findViewBy
 
 ![imagen](./images/viewbinding.webp)
 
-Más información: https://developer.android.com/topic/libraries/view-binding
+- Más información: https://developer.android.com/topic/libraries/view-binding
 
 ## View Model
 
@@ -76,7 +76,7 @@ La vista espera un estado de UI proporcionado por ViewModel y, a su vez, ViewMod
 si se producen eventos desde la vista. En resumen, la vista podrá recibir actualizaciones del estado de UI desde el
 ViewModel.
 
-Más información: https://developer.android.com/topic/libraries/architecture/viewmodel?hl=es-419
+- Más información: https://developer.android.com/topic/libraries/architecture/viewmodel?hl=es-419
 
 ## Live Data
 
@@ -98,7 +98,7 @@ estado onDestroy el componente LiveData cierra y destruye la conexión con ellos
 De esta manera combinando LiveData con ViewModel, podremos observar los datos de la vista y el ViewModel en tiempo real
 y aplicar patrones reactivos.
 
-Más información: https://developer.android.com/topic/libraries/architecture/livedata?hl=es-419
+- Más información: https://developer.android.com/topic/libraries/architecture/livedata?hl=es-419
 
 ## Coroutines
 
@@ -129,8 +129,8 @@ ofrecen:
 
 ![imagen](./images/corutines.png)
 
-Más información: https://developer.android.com/kotlin/coroutines?hl=es-419
-Un proyecto de corrutinas: https://github.com/joseluisgs/kotlint-init-coroutines
+- Más información: https://developer.android.com/kotlin/coroutines?hl=es-419
+- Un proyecto de corrutinas: https://github.com/joseluisgs/kotlint-init-coroutines
 
 ## Retrofit 2
 Librería desarrollada por la empresa Square y recomendada por
@@ -144,8 +144,8 @@ Además se se integra perfectamente con Coroutines.
 
 ![imagen](./images/retrofit.png)
 
-Más información: https://square.github.io/retrofit/
-Un proyecto con Retrofit: https://github.com/joseluisgs/Kotlin-REST-Retrofit
+- Más información: https://square.github.io/retrofit/
+- Un proyecto con Retrofit: https://github.com/joseluisgs/Kotlin-REST-Retrofit
 
 
 ## Autor
