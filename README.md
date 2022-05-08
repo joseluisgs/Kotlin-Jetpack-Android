@@ -10,16 +10,17 @@ Ejemplo de implementar poco a poco Jetpack Android en Kotlin
 ![imagen](./images/img01.png)
 
 - [Kotlin Jetpack Android](#kotlin-jetpack-android)
-    - [Acerca de](#acerca-de)
-    - [Android Jetpack](#android-jetpack)
-    - [View Binding](#view-binding)
-    - [View Model](#view-model)
-    - [Live Data](#live-data)
-    - [Coroutines](#coroutines)
-    - [Autor](#autor)
-        - [Contacto](#contacto)
-    - [Licencia](#licencia)
-      - [Agradecimientos](#agradecimientos)
+  - [Acerca de](#acerca-de)
+  - [Android Jetpack](#android-jetpack)
+  - [View Binding](#view-binding)
+  - [View Model](#view-model)
+  - [Live Data](#live-data)
+  - [Coroutines](#coroutines)
+  - [Retrofit 2](#retrofit-2)
+  - [Autor](#autor)
+    - [Contacto](#contacto)
+  - [Licencia](#licencia)
+        - [Agradecimientos](#agradecimientos)
 
 ## Acerca de
 
@@ -130,6 +131,22 @@ ofrecen:
 
 Más información: https://developer.android.com/kotlin/coroutines?hl=es-419
 Un proyecto de corrutinas: https://github.com/joseluisgs/kotlint-init-coroutines
+
+## Retrofit 2
+Librería desarrollada por la empresa Square y recomendada por
+Google en su arquitectura Android. Se encarga de facilitar la integración de una aplicación con un
+API REST.
+
+Retrofit 2 soporta los tipos de operaciones REST: GET, POST, PUT, PATCH y DELETE. Ya sea peticiones con Query, Body, Headers, Multipart, etc. Además, descarga datos en formato XML o JSON desde el API y los parsea en una data class (Kotlin) o POJO (Java) definida
+previamente.
+
+Además se se integra perfectamente con Coroutines.
+
+![imagen](./images/retrofit.png)
+
+Más información: https://square.github.io/retrofit/
+Un proyecto con Retrofit: https://github.com/joseluisgs/Kotlin-REST-Retrofit
+
 
 ## Autor
 
