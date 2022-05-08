@@ -20,7 +20,7 @@ Ejemplo de implementar poco a poco Jetpack Android en Kotlin
   - [Autor](#autor)
     - [Contacto](#contacto)
   - [Licencia](#licencia)
-        - [Agradecimientos](#agradecimientos)
+      - [Agradecimientos](#agradecimientos)
 
 ## Acerca de
 
@@ -184,6 +184,6 @@ Codificado con :sparkling_heart: por [José Luis González Sánchez](https://twi
 Este proyecto está licenciado bajo licencia **MIT**, si desea saber más, visite el fichero [LICENSE](./LICENSE) para su
 uso docente y educativo.
 
-##### Agradecimientos
+#### Agradecimientos
 
 Proyecto basado en el curso de Openwebinars: Curso de Android Jetpack Architecture
