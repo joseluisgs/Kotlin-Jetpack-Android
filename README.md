@@ -17,6 +17,7 @@ Ejemplo de implementar poco a poco Jetpack Android en Kotlin
   - [Live Data](#live-data)
   - [Coroutines](#coroutines)
   - [Retrofit 2](#retrofit-2)
+  - [Room](#room)
   - [Autor](#autor)
     - [Contacto](#contacto)
   - [Licencia](#licencia)
@@ -36,6 +37,10 @@ código estándar y escribir código que funcione de manera coherente en los dis
 que puedan enfocarse en el código que les interesa.
 
 ![imagen](./images/img02.png)
+
+A lo largo de este proyecto se ha usado distintos elementos de Jetpack siguiendo la siguiente arquitectura:
+
+![imagen](./images/architecture.png)
 
 Más información en:
 
@@ -147,7 +152,25 @@ Además se se integra perfectamente con Coroutines.
 - Más información: https://square.github.io/retrofit/
 - Un proyecto con Retrofit: https://github.com/joseluisgs/Kotlin-REST-Retrofit
 
+## Room
+Room es una librería desarrollada por Android (Google) que simplifica el manejo de datos en bases de datos SQLite. Room es el ORM (Object Relational Mapping) de Android propuesto por Google en la suite de librerías de Jetpack.
 
+La biblioteca de persistencias Room brinda una capa de abstracción para SQLite que permite acceder a la base de datos sin problemas y, al mismo tiempo, aprovechar toda la tecnología de SQLite. En particular, Room brinda los siguientes beneficios:
+- Verificación del tiempo de compilación de las consultas en SQL
+- Anotaciones de conveniencia que minimizan el código estándar repetitivo y propenso a errores
+- Rutas de migración de bases de datos optimizadas
+
+![imagen](./images/room.png)
+
+Estos son los tres componentes principales de Room:
+- La clase de la base de datos que contiene la base de datos y sirve como punto de acceso principal para la conexión subyacente a los datos persistentes de la app y nos proporcionas DAOs.
+- Las entidades de datos que representan tablas de la base de datos de tu app.
+- Objetos de acceso a datos (DAOs) que proporcionan métodos que tu app puede usar para consultar, actualizar, insertar y borrar datos en la base de datos.
+
+![imagen](./images/room_architecture.png)
+
+
+Más información: https://developer.android.com/training/data-storage/room?hl=es-419
 ## Autor
 
 Codificado con :sparkling_heart: por [José Luis González Sánchez](https://twitter.com/joseluisgonsan)
