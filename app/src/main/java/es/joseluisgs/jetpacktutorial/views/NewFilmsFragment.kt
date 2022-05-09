@@ -11,7 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import es.joseluisgs.jetpacktutorial.databinding.FragmentNewFilmsBinding
 import es.joseluisgs.jetpacktutorial.viewmodels.NewFilmsViewModel
-import es.joseluisgs.jetpacktutorial.views.DetailFragment.Companion.EXTRA
+import es.joseluisgs.jetpacktutorial.views.DetailFilmFragment.Companion.EXTRA
 
 class NewFilmsFragment : Fragment() {
     // View Binding
@@ -43,7 +43,7 @@ class NewFilmsFragment : Fragment() {
             with(binding.recyclerNews) {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                 // le pasamos una instancia de FilmsAdapter con las peliculas recuperadas del repositorio
-                adapter = FilmsAdapter(films) {
+                adapter = NewFilmAdapter(films) {
                     // cuando se pulsa sobre una pelicula, se lanza una nueva actividad
                     val intentDetail = Intent(context, DetailActivity::class.java)
                     // Le añadimos la pelicula seleccionada como extra

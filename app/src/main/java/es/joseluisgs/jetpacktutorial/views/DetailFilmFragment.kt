@@ -7,20 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import es.joseluisgs.jetpacktutorial.databinding.FragmentDetailBinding
+import es.joseluisgs.jetpacktutorial.databinding.FragmentDetailFilmBinding
 import es.joseluisgs.jetpacktutorial.models.Film
 import es.joseluisgs.jetpacktutorial.utils.getImageSrc
 import es.joseluisgs.jetpacktutorial.viewmodels.DetailViewModel
 
-class DetailFragment : Fragment() {
+class DetailFilmFragment : Fragment() {
     // Definimos como le pasamos los datos por el intent
     companion object {
         const val EXTRA = "film"
         fun newInstance(
             film: Film
-        ): DetailFragment {
+        ): DetailFilmFragment {
             // Creamos el fragment y le pasamos los datos con putParceable
-            val fragment = DetailFragment()
+            val fragment = DetailFilmFragment()
             val args = Bundle()
             args.putParcelable(EXTRA, film)
             fragment.arguments = args
@@ -29,7 +29,7 @@ class DetailFragment : Fragment() {
     }
 
     // Hacemos el binding del fragment con el layout
-    private var _binding: FragmentDetailBinding? = null
+    private var _binding: FragmentDetailFilmBinding? = null
     private val binding get() = _binding!! // devuelve el _binding
 
     // Creamos la instancia a VieModel/LiveData y quedan atadas al ciclo de vida de la actividad del Fragment
@@ -40,7 +40,7 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Aplicamos el binding
-        _binding = FragmentDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentDetailFilmBinding.inflate(inflater, container, false)
         return binding.root
     }
 

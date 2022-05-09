@@ -9,12 +9,12 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import es.joseluisgs.jetpacktutorial.databinding.FragmentFavsBinding
+import es.joseluisgs.jetpacktutorial.databinding.FragmentFavFilmBinding
 import es.joseluisgs.jetpacktutorial.viewmodels.FavFilmsViewModel
 
-class FavsFragment : Fragment() {
+class FavFilmsFragment : Fragment() {
     // Realizamos el binding
-    private var _binding: FragmentFavsBinding? = null
+    private var _binding: FragmentFavFilmBinding? = null
     private val binding get() = _binding!!
 
     // Hacemos el viewmodel con liveData
@@ -25,7 +25,7 @@ class FavsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentFavsBinding.inflate(inflater, container, false)
+        _binding = FragmentFavFilmBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -37,11 +37,11 @@ class FavsFragment : Fragment() {
         favsViewModel.favsLiveData.observe(viewLifecycleOwner) { films ->
             with(binding.recyclerFavs) {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-                adapter = FavsAdapter(films) {
+                adapter = FavFilmAdapter(films) {
                     // cuando se pulsa sobre una pelicula, se lanza una nueva actividad
                     val intentDetail = Intent(context, DetailActivity::class.java)
                     // Le añadimos la pelicula seleccionada como extra
-                    intentDetail.putExtra(DetailFragment.EXTRA, it)
+                    intentDetail.putExtra(DetailFilmFragment.EXTRA, it)
                     // lanzamos la actividad con el intent creado y el dato que necesita
                     startActivity(intentDetail)
                 }

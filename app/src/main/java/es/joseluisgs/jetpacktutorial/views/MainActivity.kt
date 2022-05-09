@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     // Los fragments a usar
-    private val newsFragment = NewFilmsFragment()
-    private val favsFragment = FavsFragment()
+    private val newFilmsFragment = NewFilmsFragment()
+    private val favFilmsFragment = FavFilmsFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Le indicamos el fragment inicial a mostrar
-        setFragment(newsFragment)
+        setFragment(newFilmsFragment)
 
         // Le indicamos el listener del BottomNavigationView
         setViewBottomNavigationListener()
@@ -43,10 +43,10 @@ class MainActivity : AppCompatActivity() {
         // Tenemos ahora todo enlazado con binding sin findViewById
         val viewBottomNav = binding.viewBottomNavigation
         // Dependiendo de lo que pulsemos en el BottomNavigationView, cambiamos el fragment
-        viewBottomNav.setOnNavigationItemSelectedListener { item ->
+        viewBottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.news -> setFragment(newsFragment)
-                R.id.favs -> setFragment(favsFragment)
+                R.id.news -> setFragment(newFilmsFragment)
+                R.id.favs -> setFragment(favFilmsFragment)
             }
             true
         }

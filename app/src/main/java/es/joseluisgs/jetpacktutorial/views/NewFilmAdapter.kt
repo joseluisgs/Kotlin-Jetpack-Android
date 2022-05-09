@@ -8,12 +8,12 @@ import es.joseluisgs.jetpacktutorial.models.Film
 import es.joseluisgs.jetpacktutorial.utils.getImageSrc
 
 
-class FilmsAdapter(
+class NewFilmAdapter(
     // Lista de películas
     private val films: List<Film>,
     // Evento al pulsar una película
     private val onClickFilm: (Film) -> Unit
-) : RecyclerView.Adapter<FilmsAdapter.FilmsViewHolder>() {
+) : RecyclerView.Adapter<NewFilmAdapter.FilmsViewHolder>() {
 
     override fun onBindViewHolder(holder: FilmsViewHolder, position: Int) {
         val item = films[position]

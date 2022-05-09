@@ -7,12 +7,12 @@ import es.joseluisgs.jetpacktutorial.databinding.ItemFilmBinding
 import es.joseluisgs.jetpacktutorial.models.Film
 import es.joseluisgs.jetpacktutorial.utils.getImageSrc
 
-class FavsAdapter(
+class FavFilmAdapter(
     // Lista de datos
     private val films: List<Film>,
     // Evento al pulsar una película
     private val onClickFilm: (Film) -> Unit
-) : RecyclerView.Adapter<FavsAdapter.FavsViewHolder>() {
+) : RecyclerView.Adapter<FavFilmAdapter.FavsViewHolder>() {
 
     override fun onBindViewHolder(holder: FavsViewHolder, position: Int) {
         val item = films[position]

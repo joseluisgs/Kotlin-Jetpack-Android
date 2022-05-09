@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import es.joseluisgs.jetpacktutorial.R
 import es.joseluisgs.jetpacktutorial.databinding.ActivityDetailBinding
 import es.joseluisgs.jetpacktutorial.models.Film
-import es.joseluisgs.jetpacktutorial.views.DetailFragment.Companion.EXTRA
+import es.joseluisgs.jetpacktutorial.views.DetailFilmFragment.Companion.EXTRA
 
 class DetailActivity : AppCompatActivity() {
     // binding
@@ -21,7 +21,7 @@ class DetailActivity : AppCompatActivity() {
 
         // Con los datos obtenidos se los pasamos al fragment que tenemos asignados
         getExtras()?.let {
-            setFragment(DetailFragment.newInstance(it))
+            setFragment(DetailFilmFragment.newInstance(it))
         } ?: finish()
     }
 
