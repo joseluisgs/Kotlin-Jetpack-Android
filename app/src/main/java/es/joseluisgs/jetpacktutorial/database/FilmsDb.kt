@@ -12,7 +12,7 @@ import es.joseluisgs.jetpacktutorial.database.entities.FilmEntity
     entities = [FilmEntity::class],
     version = 1
 )
-abstract class FilmDb : RoomDatabase() {
+abstract class FilmsDb : RoomDatabase() {
     // Dao de la base de datos por cada entidad
-    abstract fun filmDao(): FilmDao
+    abstract fun filmDao(): FilmsDao
 }

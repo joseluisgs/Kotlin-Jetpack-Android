@@ -2,7 +2,7 @@ package es.joseluisgs.jetpacktutorial
 
 import android.app.Application
 import androidx.room.Room
-import es.joseluisgs.jetpacktutorial.database.FilmDb
+import es.joseluisgs.jetpacktutorial.database.FilmsDb
 
 class FilmApp : Application() {
     /**
@@ -16,13 +16,13 @@ class FilmApp : Application() {
             private set // Anulamos el setter para que no se pueda modificar desde fuera
     }
 
-    lateinit var room: FilmDb
+    lateinit var room: FilmsDb
 
     override fun onCreate() {
         super.onCreate()
         // Creamos la instancia de Room, con el contexto de Application
         room = Room
-            .databaseBuilder(this, FilmDb::class.java, "films")
+            .databaseBuilder(this, FilmsDb::class.java, "films")
             .build()
 
         // almacenamos esta instancia

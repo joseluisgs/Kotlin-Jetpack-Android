@@ -1,9 +1,6 @@
 package es.joseluisgs.jetpacktutorial.views
 
-import android.content.Context
-import android.content.res.Resources
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import es.joseluisgs.jetpacktutorial.databinding.FragmentDetailBinding
 import es.joseluisgs.jetpacktutorial.models.Film
+import es.joseluisgs.jetpacktutorial.utils.getImageSrc
 import es.joseluisgs.jetpacktutorial.viewmodels.DetailViewModel
 
 class DetailFragment : Fragment() {
@@ -61,7 +59,7 @@ class DetailFragment : Fragment() {
             binding.tvSynopsis.text = it.synopsis
             showIsFavorite(it)
             binding.ivFav.setOnClickListener {
-                binding.ivFav.setColorFilter(Color.parseColor("#00618D"))
+                // binding.ivFav.setColorFilter(Color.parseColor("#00618D"))
                 // Le indicamos que deje o no se ser favorito
                 detailViewModel.clickFavorite(film)
             }
@@ -75,7 +73,7 @@ class DetailFragment : Fragment() {
             if (isFavorite) {
                 binding.ivFav.setColorFilter(Color.parseColor("#00618D"))
             } else {
-                binding.ivFav.setColorFilter(Color.parseColor("#000000"))
+                binding.ivFav.setColorFilter(Color.parseColor("#E4ECF0"))
             }
         }
     }
@@ -85,17 +83,6 @@ class DetailFragment : Fragment() {
         arguments?.let {
             it.getParcelable(EXTRA) as? Film
         }
-
-    private fun getImageSrc(name: String, context: Context?): Drawable? {
-        return context?.let {
-            val resources: Resources = context.resources
-            val resourceId: Int = resources.getIdentifier(
-                name, "drawable",
-                context.packageName
-            )
-            resources.getDrawable(resourceId, null)
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

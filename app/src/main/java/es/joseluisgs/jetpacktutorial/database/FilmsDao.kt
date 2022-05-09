@@ -12,7 +12,7 @@ import es.joseluisgs.jetpacktutorial.database.entities.FilmEntity
  * Funciones suspend para hacerlo asincrono con corrutinas.
  */
 @Dao
-interface FilmDao {
+interface FilmsDao {
     // Operaciones respecto a la base de datos o CRUD
     // Los voy a llamar igual que la operación SQL que encapsulan
 

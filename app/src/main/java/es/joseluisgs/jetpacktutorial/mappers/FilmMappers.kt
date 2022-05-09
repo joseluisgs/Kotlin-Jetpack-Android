@@ -5,7 +5,7 @@ import es.joseluisgs.jetpacktutorial.database.entities.FilmEntity
 import es.joseluisgs.jetpacktutorial.models.Film
 
 /**
- * Mapeadores para peliculas
+ * Mapeadores para peliculas Modelo, Dto y Entidad
  */
 fun FilmDto.toFilm(): Film {
     return Film(

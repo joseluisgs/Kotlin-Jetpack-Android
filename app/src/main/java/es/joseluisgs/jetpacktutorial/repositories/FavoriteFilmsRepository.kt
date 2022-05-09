@@ -1,7 +1,7 @@
 package es.joseluisgs.jetpacktutorial.repositories
 
 import es.joseluisgs.jetpacktutorial.FilmApp
-import es.joseluisgs.jetpacktutorial.database.FilmDao
+import es.joseluisgs.jetpacktutorial.database.FilmsDao
 import es.joseluisgs.jetpacktutorial.mappers.toFilmEntity
 import es.joseluisgs.jetpacktutorial.mappers.toFilms
 import es.joseluisgs.jetpacktutorial.models.Film
@@ -11,7 +11,7 @@ import es.joseluisgs.jetpacktutorial.models.Film
  */
 class FavoriteFilmsRepository {
     // Obtenemos la referencia al DAO
-    private val database: FilmDao = FilmApp.instance.room.filmDao()
+    private val database: FilmsDao = FilmApp.instance.room.filmDao()
 
     // Implementamos todas las funciones a realizar CRUD: Create, Read, Update, Delete...
 

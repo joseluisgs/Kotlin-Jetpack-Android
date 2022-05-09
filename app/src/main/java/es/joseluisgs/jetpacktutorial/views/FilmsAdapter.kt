@@ -1,13 +1,11 @@
 package es.joseluisgs.jetpacktutorial.views
 
-import android.content.Context
-import android.content.res.Resources
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import es.joseluisgs.jetpacktutorial.databinding.ItemFilmBinding
 import es.joseluisgs.jetpacktutorial.models.Film
+import es.joseluisgs.jetpacktutorial.utils.getImageSrc
 
 
 class FilmsAdapter(
@@ -40,15 +38,6 @@ class FilmsAdapter(
             itemBinding.tvRate.text = item.rate
             itemBinding.ivCover.setImageDrawable(getImageSrc(item.image, itemView.context))
             itemBinding.cardFilm.setOnClickListener { onClickFilm(item) }
-        }
-
-        private fun getImageSrc(name: String, context: Context): Drawable {
-            val resources: Resources = context.resources
-            val resourceId: Int = resources.getIdentifier(
-                name, "drawable",
-                context.packageName
-            )
-            return resources.getDrawable(resourceId, null)
         }
     }
 }
