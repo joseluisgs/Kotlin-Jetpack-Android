@@ -31,6 +31,7 @@ class NewFilmsFragment : Fragment() {
         return binding.root
     }
 
+    // Se ejecuta una vez se haya hecho el onCreateView
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // Obtenemos los datos, ya los obtenemos de manera asincrona
