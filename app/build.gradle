@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     // Para usar parcealize y pasar datos más facilmente entre objetos
     id 'kotlin-parcelize'
+    // Para usar las notaciones: Como son las de Room o Hilt
+    id 'kotlin-kapt'
 }
 
 android {
@@ -55,6 +57,11 @@ dependencies {
     // Retrofit 2
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Room
+    implementation "androidx.room:room-ktx:2.4.2"
+    kapt "androidx.room:room-compiler:2.4.2"
+
 
     // Para testear
     testImplementation 'junit:junit:4.+'
