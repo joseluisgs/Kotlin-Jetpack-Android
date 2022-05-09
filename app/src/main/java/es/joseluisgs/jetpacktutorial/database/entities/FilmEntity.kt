@@ -1,4 +1,4 @@
-package es.joseluisgs.jetpacktutorial.database
+package es.joseluisgs.jetpacktutorial.database.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

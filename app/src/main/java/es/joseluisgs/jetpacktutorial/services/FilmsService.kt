@@ -1,7 +1,7 @@
 package es.joseluisgs.jetpacktutorial.services
 
 import es.joseluisgs.jetpacktutorial.apis.FilmsApiClient
-import es.joseluisgs.jetpacktutorial.dto.FilmDTO
+import es.joseluisgs.jetpacktutorial.apis.dto.FilmDto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
  */
 class FilmsService {
     // Lo transformamos en una corrutina, con Dispacher.IO
-    suspend fun get(): List<FilmDTO> = withContext(Dispatchers.IO) {
+    suspend fun get(): List<FilmDto> = withContext(Dispatchers.IO) {
         // Lo llamamos a la API REST
         val response = FilmsApiClient.getInstance().getAllFilms()
         // Respondemos o bien con una lista vacia, o con la lista de peliculas DTO

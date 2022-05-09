@@ -2,6 +2,7 @@ package es.joseluisgs.jetpacktutorial.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import es.joseluisgs.jetpacktutorial.database.entities.FilmEntity
 
 /**
  * Configuración de las base de datos

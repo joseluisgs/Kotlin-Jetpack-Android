@@ -1,4 +1,4 @@
-package es.joseluisgs.jetpacktutorial.dto
+package es.joseluisgs.jetpacktutorial.apis.dto
 
 import com.google.gson.annotations.SerializedName
 
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
  * DTO for a film
  * Usamos notaciones de GSON para indicar que los campos de la clase son
  */
-data class FilmDTO(
+data class FilmDto(
     @SerializedName("id")
     val id: Int,
     @SerializedName("name")

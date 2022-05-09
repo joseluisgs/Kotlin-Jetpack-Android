@@ -9,8 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import es.joseluisgs.jetpacktutorial.databinding.FragmentDetailBinding
 import es.joseluisgs.jetpacktutorial.models.Film
+import es.joseluisgs.jetpacktutorial.viewmodels.DetailViewModel
 
 class DetailFragment : Fragment() {
     // Definimos como le pasamos los datos por el intent
@@ -32,6 +34,9 @@ class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!! // devuelve el _binding
 
+    // Creamos la instancia a VieModel/LiveData y quedan atadas al ciclo de vida de la actividad del Fragment
+    private val detailViewModel: DetailViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,7 +48,10 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showContent(getFilmFromArguments())
+        val film = getFilmFromArguments()
+        showContent(film)
+        // Le asignamos si es favorito o no
+        detailViewModel.isFavorite(film)
     }
 
     private fun showContent(film: Film?) {
@@ -51,9 +59,23 @@ class DetailFragment : Fragment() {
             binding.tvTitle.text = it.name
             binding.tvDirector.text = it.director
             binding.tvSynopsis.text = it.synopsis
-            binding.ivFilm.setImageDrawable(getImageSrc(it.image, context))
+            showIsFavorite(it)
             binding.ivFav.setOnClickListener {
                 binding.ivFav.setColorFilter(Color.parseColor("#00618D"))
+                // Le indicamos que deje o no se ser favorito
+                detailViewModel.clickFavorite(film)
+            }
+        }
+    }
+
+    // Muestra si es favorito, suscribiendose al ViewModel/LiveData
+    private fun showIsFavorite(film: Film) {
+        binding.ivFilm.setImageDrawable(getImageSrc(film.image, context))
+        detailViewModel.isFavorite.observe(viewLifecycleOwner) { isFavorite ->
+            if (isFavorite) {
+                binding.ivFav.setColorFilter(Color.parseColor("#00618D"))
+            } else {
+                binding.ivFav.setColorFilter(Color.parseColor("#000000"))
             }
         }
     }
