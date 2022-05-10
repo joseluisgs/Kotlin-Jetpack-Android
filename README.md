@@ -18,6 +18,7 @@ Ejemplo de implementar poco a poco Jetpack Android en Kotlin
   - [Coroutines](#coroutines)
   - [Retrofit 2](#retrofit-2)
   - [Room](#room)
+  - [Hilt](#hilt)
   - [Autor](#autor)
     - [Contacto](#contacto)
   - [Licencia](#licencia)
@@ -171,6 +172,34 @@ Estos son los tres componentes principales de Room:
 
 
 Más información: https://developer.android.com/training/data-storage/room?hl=es-419
+
+## Hilt
+Hilt es una librería de inyección de dependencias desarrollada y recomendada por Google. Hilt está construido a partir de Dagger y ahora forma parte del framework de Android.
+
+Implementar la inyección de dependencias (DI), es una de las prácticas recomendadas no solo por Google si no en cualquier desarrollo de software. Te proporciona las siguientes ventajas:
+- Principio de Responsabilidad Única (SRP - SOLID)
+- Reutilización de código
+- Facilidad de refactorización
+- Facilidad de prueba
+
+Para ello las dependencias no deben crearse dentro de nuestro módulo. Porque:
+- Desde fuera no veremos con qué módulos se interactúa.
+- En los tests no podemos probar nuestro módulo de forma aislada, ejecutamos lógica del módulo del que se depende.
+
+¿Quién provee las dependencias?
+- Todos los módulos exponen ahora sus dependencias por constructor.
+- Crear una clase que se encargue de proveer instancias de todas las dependencias es un trabajo enorme.
+- Los inyectores de dependencias se encargan de ello.
+- Existen muchos inyectores de dependencias: Hilt, Koin, Dagger...
+
+![imagen](./images/hilt.jpg)
+
+Más información:
+- Hilt: https://developer.android.com/training/dependency-injection/hilt-android?hl=es-419
+- DI Android con Hilt: https://devexperto.com/dagger-hilt/
+- Un proyecto para entender DI: https://github.com/joseluisgs/Kotlin-DI-Ejemplos
+
+
 ## Autor
 
 Codificado con :sparkling_heart: por [José Luis González Sánchez](https://twitter.com/joseluisgonsan)
