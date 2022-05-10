@@ -1,6 +1,6 @@
 package es.joseluisgs.jetpacktutorial.services
 
-import es.joseluisgs.jetpacktutorial.apis.FilmsApiClient
+import es.joseluisgs.jetpacktutorial.apis.FilmsRest
 import es.joseluisgs.jetpacktutorial.apis.dto.FilmDto
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -10,11 +10,13 @@ import javax.inject.Inject
  * Simulamos un repositorio de datos
  */
 class FilmsService
-@Inject constructor() {
+@Inject constructor(
+    private val filmsRestClient: FilmsRest
+) {
     // Lo transformamos en una corrutina, con Dispacher.IO
     suspend fun getAllFilms(): List<FilmDto> = withContext(Dispatchers.IO) {
         // Lo llamamos a la API REST
-        val response = FilmsApiClient.getInstance().getAllFilms()
+        val response = filmsRestClient.getAllFilms()
         // Respondemos o bien con una lista vacia, o con la lista de peliculas DTO
         response.body() ?: emptyList()
         /**
