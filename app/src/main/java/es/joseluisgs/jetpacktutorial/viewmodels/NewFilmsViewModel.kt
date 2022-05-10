@@ -3,17 +3,22 @@ package es.joseluisgs.jetpacktutorial.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import es.joseluisgs.jetpacktutorial.models.Film
 import es.joseluisgs.jetpacktutorial.repositories.NewFilmsRepository
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * View Model para nuevas películas.
  */
-class NewFilmsViewModel : ViewModel() {
+@HiltViewModel
+class NewFilmsViewModel
+@Inject constructor(
+    private val newFilmsRepository: NewFilmsRepository
+) : ViewModel() {
     // Contenedor de películas observables nuevas para las vistas y reposítorio de datos
     val newsFilmsLiveData = MutableLiveData<List<Film>>()
-    private val newFilmsRepository: NewFilmsRepository = NewFilmsRepository()
 
     // Para saber si se ha cargado la lista de películas nuevas
     val isLoading = MutableLiveData<Boolean>()

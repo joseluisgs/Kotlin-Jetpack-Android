@@ -3,11 +3,13 @@ package es.joseluisgs.jetpacktutorial.views
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import es.joseluisgs.jetpacktutorial.R
 import es.joseluisgs.jetpacktutorial.databinding.ActivityDetailBinding
 import es.joseluisgs.jetpacktutorial.models.Film
 import es.joseluisgs.jetpacktutorial.views.DetailFilmFragment.Companion.EXTRA
 
+@AndroidEntryPoint // <-- This is the entry point for the Hilt dependency injection. Actividades y Fragments
 class DetailActivity : AppCompatActivity() {
     // binding
     private lateinit var binding: ActivityDetailBinding

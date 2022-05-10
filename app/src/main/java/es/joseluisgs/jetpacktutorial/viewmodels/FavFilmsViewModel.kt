@@ -3,18 +3,23 @@ package es.joseluisgs.jetpacktutorial.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import es.joseluisgs.jetpacktutorial.models.Film
 import es.joseluisgs.jetpacktutorial.repositories.FavoriteFilmsRepository
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * ViewModel for the [FavsFragment]
  */
-class FavFilmsViewModel : ViewModel() {
+@HiltViewModel
+class FavFilmsViewModel
+@Inject constructor(
+    private val favsRepository: FavoriteFilmsRepository
+) : ViewModel() {
     // Mis propiedades reactivas: Listas de favoritos y si esta cargando...
     val favsLiveData = MutableLiveData<List<Film>>()
     val isLoading = MutableLiveData<Boolean>()
-    private val favsRepository: FavoriteFilmsRepository = FavoriteFilmsRepository()
 
     fun getFavFilms() {
         viewModelScope.launch {

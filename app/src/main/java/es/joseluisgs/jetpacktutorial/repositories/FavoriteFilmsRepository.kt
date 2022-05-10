@@ -5,11 +5,13 @@ import es.joseluisgs.jetpacktutorial.database.FilmsDao
 import es.joseluisgs.jetpacktutorial.mappers.toFilmEntity
 import es.joseluisgs.jetpacktutorial.mappers.toFilms
 import es.joseluisgs.jetpacktutorial.models.Film
+import javax.inject.Inject
 
 /**
  * Repositorio de favoritos de películas
  */
-class FavoriteFilmsRepository {
+class FavoriteFilmsRepository
+@Inject constructor() {
     // Obtenemos la referencia al DAO
     private val database: FilmsDao = FilmApp.instance.room.filmDao()
 

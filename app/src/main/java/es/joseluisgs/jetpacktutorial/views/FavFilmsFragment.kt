@@ -9,9 +9,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import es.joseluisgs.jetpacktutorial.databinding.FragmentFavFilmBinding
 import es.joseluisgs.jetpacktutorial.viewmodels.FavFilmsViewModel
 
+@AndroidEntryPoint // <-- This is the entry point for the Hilt dependency injection. Actividades y Fragments
 class FavFilmsFragment : Fragment() {
     // Realizamos el binding
     private var _binding: FragmentFavFilmBinding? = null

@@ -2,8 +2,10 @@ package es.joseluisgs.jetpacktutorial
 
 import android.app.Application
 import androidx.room.Room
+import dagger.hilt.android.HiltAndroidApp
 import es.joseluisgs.jetpacktutorial.database.FilmsDb
 
+@HiltAndroidApp // This annotation is used to mark the application class as a Hilt-enabled application
 class FilmApp : Application() {
     /**
      * Hasta que hagamos la inyección de dependencias, necesitamos una referencia a la base de datos

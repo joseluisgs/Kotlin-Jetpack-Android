@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import dagger.hilt.android.AndroidEntryPoint
 import es.joseluisgs.jetpacktutorial.databinding.FragmentDetailFilmBinding
 import es.joseluisgs.jetpacktutorial.models.Film
 import es.joseluisgs.jetpacktutorial.utils.getImageSrc
 import es.joseluisgs.jetpacktutorial.viewmodels.DetailViewModel
 
+@AndroidEntryPoint // <-- This is the entry point for the Hilt dependency injection. Actividades y Fragments
 class DetailFilmFragment : Fragment() {
     // Definimos como le pasamos los datos por el intent
     companion object {

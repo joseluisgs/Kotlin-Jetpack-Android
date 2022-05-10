@@ -3,9 +3,11 @@ package es.joseluisgs.jetpacktutorial.views
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
 import es.joseluisgs.jetpacktutorial.R
 import es.joseluisgs.jetpacktutorial.databinding.ActivityMainBinding
 
+@AndroidEntryPoint // <-- This is the entry point for the Hilt dependency injection. Actividades y Fragments
 class MainActivity : AppCompatActivity() {
     // Creamos el binding de la vista
     private lateinit var binding: ActivityMainBinding
