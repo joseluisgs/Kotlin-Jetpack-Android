@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.joseluisgs.jetpacktutorial.models.Film
 import es.joseluisgs.jetpacktutorial.repositories.FavoriteFilmsRepository
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,9 +25,14 @@ class FavFilmsViewModel
     fun getFavFilms() {
         viewModelScope.launch {
             isLoading.postValue(true)
-            val favs = favsRepository.getAll()
-            favsLiveData.postValue(favs)
-            isLoading.postValue(false)
+            // val favs = favsRepository.getAll()
+            // Voy a hacerlo con flujos de datos
+            favsRepository.getAll().collect { films ->
+                favsLiveData.postValue(films)
+                isLoading.postValue(false)
+            }
+            // favsLiveData.postValue(favs)
+            // isLoading.postValue(false)
         }
     }
 }

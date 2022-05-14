@@ -6,6 +6,8 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.joseluisgs.jetpacktutorial.models.Film
 import es.joseluisgs.jetpacktutorial.repositories.NewFilmsRepository
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -23,14 +25,20 @@ class NewFilmsViewModel
     // Para saber si se ha cargado la lista de películas nuevas
     val isLoading = MutableLiveData<Boolean>()
 
+    @OptIn(InternalCoroutinesApi::class)
     fun getNewFilms() {
         // Obtenemos las películas nuevas y las asignamos al contenedor, que será observado por las vistas
         // Lo hacemos asincronamente en un contexto propio (viewModel) para no bloquear el hilo principal
         viewModelScope.launch {
             isLoading.postValue(true)
-            val news = newFilmsRepository.get()
-            newsFilmsLiveData.postValue(news)
-            isLoading.postValue(false)
+            // Voy a hacerlo con flows
+            // val news = newFilmsRepository.getAllFilms()
+            newFilmsRepository.getAllFilmsAsFlow().collect { films ->
+                newsFilmsLiveData.postValue(films)
+                isLoading.postValue(false)
+            }
+            // newsFilmsLiveData.postValue(news)
+            // isLoading.postValue(false)
         }
     }
 }

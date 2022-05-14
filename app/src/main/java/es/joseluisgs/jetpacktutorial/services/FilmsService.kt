@@ -3,6 +3,10 @@ package es.joseluisgs.jetpacktutorial.services
 import es.joseluisgs.jetpacktutorial.apis.FilmsRest
 import es.joseluisgs.jetpacktutorial.apis.dto.FilmDto
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -13,6 +17,17 @@ class FilmsService
 @Inject constructor(
     private val filmsRestClient: FilmsRest
 ) {
+    // Voy a hacerlo como un flow
+    private val refreshIntervalMs: Long = 5000 // 5 segundos de refresco de datos
+    val latestNews: Flow<List<FilmDto>> = flow {
+        while (true) {
+            val latestNews = filmsRestClient.getAllFilms()
+            emit(latestNews.body() ?: emptyList()) // Emits the result of the request to the flow
+            delay(refreshIntervalMs) // Suspends the coroutine for some time
+        }
+    }.flowOn(Dispatchers.IO) // Se ejecuta en el thread de IO
+
+
     // Lo transformamos en una corrutina, con Dispacher.IO
     suspend fun getAllFilms(): List<FilmDto> = withContext(Dispatchers.IO) {
         // Lo llamamos a la API REST
