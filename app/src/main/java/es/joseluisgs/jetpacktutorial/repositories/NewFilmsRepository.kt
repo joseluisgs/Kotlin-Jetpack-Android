@@ -17,9 +17,9 @@ class NewFilmsRepository
     suspend fun getAllFilms(): List<Film> = filmService.getAllFilms().toFilms()
 
     /**
-     * Voy a hacerlo con un flujo de datos simplificado
+     * Voy a hacerlo con un flujo de datos simplificado, pero como variable (y no hago la llamada a una función)
      */
-    suspend fun getAllFilmsAsFlow(): Flow<List<Film>> = flow {
+    val newFilmsAsFlow: Flow<List<Film>> = flow {
         filmService.latestNews.map { it.toFilms() }.collect { emit(it) }
     }.flowOn(Dispatchers.IO)
 }

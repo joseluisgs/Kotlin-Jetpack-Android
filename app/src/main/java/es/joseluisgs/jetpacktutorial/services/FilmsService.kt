@@ -19,6 +19,8 @@ class FilmsService
 ) {
     // Voy a hacerlo como un flow
     private val refreshIntervalMs: Long = 5000 // 5 segundos de refresco de datos
+
+    // una variable que ene l fondo es un flow de datos de films (función)
     val latestNews: Flow<List<FilmDto>> = flow {
         while (true) {
             val latestNews = filmsRestClient.getAllFilms()

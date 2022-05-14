@@ -33,7 +33,7 @@ class NewFilmsViewModel
             isLoading.postValue(true)
             // Voy a hacerlo con flows
             // val news = newFilmsRepository.getAllFilms()
-            newFilmsRepository.getAllFilmsAsFlow().collect { films ->
+            newFilmsRepository.newFilmsAsFlow.collect { films ->
                 newsFilmsLiveData.postValue(films)
                 isLoading.postValue(false)
             }

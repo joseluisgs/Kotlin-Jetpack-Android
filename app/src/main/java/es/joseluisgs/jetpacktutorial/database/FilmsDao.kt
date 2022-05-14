@@ -18,7 +18,7 @@ interface FilmsDao {
     // Los voy a llamar igual que la operación SQL que encapsulan
 
     @Query("SELECT * FROM FAVORITES")
-    fun selectAll(): Flow<List<FilmEntity>> // Devuelve un flow para que sea asincrono
+    fun selectAll(): Flow<List<FilmEntity>> // Devuelve un flow para que sea asincrono, no tiene que ser suspend
     // suspend fun selectAll(): List<FilmEntity> // Devuelve una lista para que sea sincrono
     /**
      * Puedes usar Flow with Room (flujo con Room) para recibir notificaciones
@@ -30,7 +30,8 @@ interface FilmsDao {
     suspend fun insert(film: FilmEntity)
 
     @Query("SELECT * FROM FAVORITES WHERE id = :filmId")
-    suspend fun selectById(filmId: Int): FilmEntity? // Podriamos hacerlo como flujo
+    fun getFilmById(filmId: Int): Flow<FilmEntity?>
+    // suspend fun selectById(filmId: Int): FilmEntity? // Podriamos hacerlo como flujo
 
     @Query("DELETE FROM FAVORITES WHERE id = :filmId")
     suspend fun deleteById(filmId: Int)

@@ -27,7 +27,7 @@ class FavFilmsViewModel
             isLoading.postValue(true)
             // val favs = favsRepository.getAll()
             // Voy a hacerlo con flujos de datos
-            favsRepository.getAll().collect { films ->
+            favsRepository.favoriteFilms.collect { films ->
                 favsLiveData.postValue(films)
                 isLoading.postValue(false)
             }

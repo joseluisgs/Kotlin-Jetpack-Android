@@ -18,7 +18,9 @@ class FavoriteFilmsRepository
     // Implementamos todas las funciones a realizar CRUD: Create, Read, Update, Delete...
 
     // Obtenemos todas las películas favoritas mapeando resultados a objetos de tipo [Film]
-    suspend fun getAll(): Flow<List<Film>> = flow {
+
+    // Voy a trasnformalo en un flow de tipo [Film] pero como variable
+    val favoriteFilms: Flow<List<Film>> = flow {
         filmsDao.selectAll().map { it.toFilms() }.collect { emit(it) }
     }.flowOn(Dispatchers.IO)
 
@@ -29,7 +31,7 @@ class FavoriteFilmsRepository
 
     // existe??
     suspend fun exist(film: Film): Boolean =
-        filmsDao.selectById(film.id) != null
+        filmsDao.getFilmById(film.id).first() != null
 
     // Eliminamos una película favorita por su id
     suspend fun delete(film: Film) {
