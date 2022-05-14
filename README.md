@@ -19,6 +19,7 @@ Ejemplo de implementar poco a poco Jetpack Android en Kotlin
   - [Retrofit 2](#retrofit-2)
   - [Room](#room)
   - [Hilt](#hilt)
+  - [Flows](#flows)
   - [Autor](#autor)
     - [Contacto](#contacto)
   - [Licencia](#licencia)
@@ -199,6 +200,21 @@ Más información:
 - DI Android con Hilt: https://devexperto.com/dagger-hilt/
 - Un proyecto para entender DI: https://github.com/joseluisgs/Kotlin-DI-Ejemplos
 
+
+## Flows
+Un flujo es conceptualmente una transmisión de datos que se puede computar de forma asíncrona. En una estructura de flujo de datos “en frío”, los elementos son producidos y emitidos bajo demanda. Ésto quiere decir que los elementos se empiezan a producir y emitir hasta que el consumidor lo requiera y actúan de manera asíncrona. 
+
+![imagen](./images/flow-entities.png)
+
+En Android, un repositorio es, generalmente, un productor de datos de IU que tiene la interfaz de usuario (IU) como consumidor que, en última instancia, muestra los datos. 
+
+El flujo está integrado en varias bibliotecas de Jetpack y es popular entre las bibliotecas de terceros de Android. El flujo es una gran opción para las actualizaciones de datos en tiempo real y los flujos de datos infinitos.
+
+Puedes usar Flow with Room (flujo con Room) para recibir notificaciones sobre los cambios en una base de datos. Cuando uses objetos de acceso a datos (DAO), muestra un tipo Flow para obtener actualizaciones en tiempo real.
+
+Más información: 
+- Flow: https://developer.android.com/kotlin/flow
+- Un proyecto con Flow: https://github.com/joseluisgs/kotlint-init-coroutines#flujos
 
 ## Autor
 
